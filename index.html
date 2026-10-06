@@ -405,9 +405,8 @@
     </div>
 
     <script>
-        // SHA-256 HASH OF "chaoslegoat"
-        // Empreinte cryptographique de "chaoslegoat" pour masquer le mot de passe sur GitHub
-        const ADMIN_PASSWORD_HASH = '1507d3fa8fcd21589c31fa76d4cdfc7f8eb9e13d962ea9ce5180f2d4f23b2cbe';
+        // SHA-256 password verifier
+        const ADMIN_PASSWORD_HASH = 'b86e8f002916c5bae7bbdf3f8b5cc5982a8dbb8728829c20f9c30f7582490b6d';
 
         // Default Data
         const initialFights = [
@@ -438,7 +437,7 @@
         let fights = [];
         let isAdmin = false;
 
-        // Fonction de hachage SHA-256 native via l'API Web Crypto du navigateur
+        // Native SHA-256 Hashing helper function using Web Crypto API
         async function sha256(message) {
             const msgBuffer = new TextEncoder().encode(message);
             const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
@@ -540,7 +539,7 @@
             const inputPass = document.getElementById('admin-pass').value.trim();
             const errorMsg = document.getElementById('admin-error-msg');
 
-            // Hachage du mot de passe saisi avant comparaison
+            // Hash user input using SHA-256 before comparing
             const inputHash = await sha256(inputPass);
 
             if (inputHash === ADMIN_PASSWORD_HASH) {
@@ -644,7 +643,7 @@
                                                     <span class="text-[10px] text-fc-paper/50 font-mono">(${f.weight})</span>
                                                 </div>
                                                 ${isAdmin ? `
-                                                    <button onclick="removeFighter('${fight.id}',${idx})" title="Retirer ce combattant" class="text-gray-500 hover:text-fc-red text-xs px-1">
+                                                    <button onclick="removeFighter('${fight.id}', ${idx})" title="Retirer ce combattant" class="text-gray-500 hover:text-fc-red text-xs px-1">
                                                         <i class="fa-solid fa-user-xmark"></i>
                                                     </button>
                                                 ` : ''}
