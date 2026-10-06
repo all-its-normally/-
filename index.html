@@ -1,716 +1,744 @@
 <!DOCTYPE html>
-<html lang="fr" class="h-full bg-black">
+<html lang="fr" class="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FIGHT CLUB 66 - Prochains Combats</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FIGHT CLUB 66 - Prochains Combats</title>
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Teko', 'sans-serif'],
-                        mono: ['Share Tech Mono', 'monospace'],
-                    },
-                    colors: {
-                        soap: '#e5e7eb',
-                        blood: '#dc2626',
-                        darkBg: '#050505',
-                        panelBg: '#0f0f0f'
-                    }
-                }
-            }
-        }
-    </script>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-    <style>
-        /* Visual Glitch & Theme Styles */
-        body {
-            background-color: #050505;
-            color: #e5e7eb;
-            overflow-x: hidden;
-        }
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-        /* Glitch Effect for FIGHT CLUB 66 */
-        .glitch-wrapper {
-            position: relative;
-        }
+  <!-- Google Fonts: Permanent Marker & Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Permanent+Marker&display=swap" rel="stylesheet">
 
-        .glitch {
-            position: relative;
-            font-size: clamp(3rem, 10vw, 7rem);
-            font-weight: 700;
-            line-height: 0.9;
-            color: #fff;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            soap: '#e2b3c7',
+            soapDark: '#c88da7',
+            blood: '#8b0000',
+            bloodRed: '#ff1e27',
+            darkBg: '#0a0a0a',
+            cardBg: '#121212',
+          },
+          fontFamily: {
+            title: ['Permanent Marker', 'cursive'],
+            sans: ['Montserrat', 'sans-serif'],
+          }
         }
+      }
+    }
+  </script>
 
-        .glitch::before,
-        .glitch::after {
-            content: attr(data-text);
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            clip: rect(0, 0, 0, 0);
-        }
+  <style>
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0a0a0a;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #2a2a2a;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #ff1e27;
+    }
 
-        .glitch::before {
-            left: -2px;
-            text-shadow: 2px 0 #dc2626;
-            animation: glitch-anim-1 2s infinite linear alternate-reverse;
-        }
+    /* Glitch Animation Effect */
+    .glitch {
+      position: relative;
+      color: #ffffff;
+    }
+    .glitch::before,
+    .glitch::after {
+      content: attr(data-text);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      clip: rect(0, 0, 0, 0);
+    }
+    .glitch::before {
+      left: 2px;
+      text-shadow: -2px 0 #ff1e27;
+      animation: glitch-anim-1 2s infinite linear alternate-reverse;
+    }
+    .glitch::after {
+      left: -2px;
+      text-shadow: -2px 0 #00ffff;
+      animation: glitch-anim-2 3s infinite linear alternate-reverse;
+    }
 
-        .glitch::after {
-            left: 2px;
-            text-shadow: -2px 0 #00ffff;
-            animation: glitch-anim-2 3s infinite linear alternate-reverse;
-        }
+    @keyframes glitch-anim-1 {
+      0% { clip: rect(20px, 9999px, 15px, 0); }
+      20% { clip: rect(42px, 9999px, 80px, 0); }
+      40% { clip: rect(10px, 9999px, 85px, 0); }
+      60% { clip: rect(60px, 9999px, 20px, 0); }
+      80% { clip: rect(35px, 9999px, 50px, 0); }
+      100% { clip: rect(90px, 9999px, 5px, 0); }
+    }
+    @keyframes glitch-anim-2 {
+      0% { clip: rect(25px, 9999px, 90px, 0); }
+      20% { clip: rect(10px, 9999px, 40px, 0); }
+      40% { clip: rect(50px, 9999px, 10px, 0); }
+      60% { clip: rect(80px, 9999px, 65px, 0); }
+      80% { clip: rect(5px, 9999px, 30px, 0); }
+      100% { clip: rect(45px, 9999px, 70px, 0); }
+    }
 
-        @keyframes glitch-anim-1 {
-            0% { clip: rect(20px, 9999px, 15px, 0); }
-            20% { clip: rect(50px, 9999px, 80px, 0); }
-            40% { clip: rect(10px, 9999px, 40px, 0); }
-            60% { clip: rect(70px, 9999px, 20px, 0); }
-            80% { clip: rect(30px, 9999px, 90px, 0); }
-            100% { clip: rect(60px, 9999px, 10px, 0); }
-        }
+    /* Gritty Film Grain Overlay */
+    .bg-grain {
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+    }
 
-        @keyframes glitch-anim-2 {
-            0% { clip: rect(10px, 9999px, 80px, 0); }
-            20% { clip: rect(80px, 9999px, 10px, 0); }
-            40% { clip: rect(30px, 9999px, 50px, 0); }
-            60% { clip: rect(90px, 9999px, 30px, 0); }
-            80% { clip: rect(15px, 9999px, 70px, 0); }
-            100% { clip: rect(40px, 9999px, 25px, 0); }
-        }
-
-        /* CRT Overlay effect */
-        .crt::before {
-            content: " ";
-            display: block;
-            position: fixed;
-            top: 0; left: 0; bottom: 0; right: 0;
-            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
-            z-index: 50;
-            background-size: 100% 3px, 6px 100%;
-            pointer-events: none;
-        }
-
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 6px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #050505;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #262626;
-            border-radius: 3px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #dc2626;
-        }
-
-        .soap-shadow {
-            box-shadow: 0 0 15px rgba(220, 38, 38, 0.2);
-        }
-    </style>
+    /* Soap Bar Box Shadow */
+    .soap-shadow {
+      box-shadow: 0 10px 25px -5px rgba(226, 179, 199, 0.4), 0 8px 10px -6px rgba(226, 179, 199, 0.2);
+    }
+    
+    .red-glow {
+      box-shadow: 0 0 15px rgba(255, 30, 39, 0.5);
+    }
+  </style>
 </head>
-<body class="h-full crt selection:bg-red-900 selection:text-white">
+<body class="bg-darkBg text-gray-200 font-sans min-h-screen relative overflow-x-hidden bg-grain selection:bg-bloodRed selection:text-white">
 
-    <!-- ÉCRAN D'ACCÈS / CODE PASSPHRASE -->
-    <div id="gatekeeper" class="fixed inset-0 z-40 bg-black flex flex-col items-center justify-center p-4">
-        <div class="max-w-md w-full bg-panelBg border border-zinc-800 p-8 rounded-none soap-shadow text-center">
-            
-            <div class="mb-6 glitch-wrapper">
-                <h1 class="glitch text-5xl tracking-widest text-white font-bold" data-text="FIGHT CLUB 66">FIGHT CLUB 66</h1>
-            </div>
+  <!-- ==================== LOCK SCREEN SCREEN ==================== -->
+  <div id="lockScreen" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-black px-4 text-center transition-opacity duration-700">
+    <!-- Grunge Background Image Overlay -->
+    <div class="absolute inset-0 bg-cover bg-center opacity-20 filter grayscale" style="background-image: url('https://images.unsplash.com/photo-1517649763962-0c623266ddc0?auto=format&fit=crop&q=80');"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent"></div>
 
-            <p class="font-mono text-zinc-400 text-sm mb-6 uppercase tracking-wider">
-                "Si c'est votre première nuit au Fight Club, vous devez vous battre."
-            </p>
+    <div class="relative z-10 max-w-md w-full flex flex-col items-center">
+      <!-- Soap Bar Logo -->
+      <div class="w-48 h-28 bg-gradient-to-br from-soap to-soapDark rounded-xl soap-shadow flex items-center justify-center transform -rotate-3 hover:rotate-0 transition-transform duration-300 mb-8 border border-white/20">
+        <span class="font-title text-2xl text-pink-950 tracking-wider text-center leading-tight drop-shadow">FIGHT CLUB<br>66</span>
+      </div>
 
-            <div class="space-y-4">
-                <div class="relative">
-                    <input type="password" id="passcode-input" placeholder="ENTRER LE CODE D'ACCÈS..." 
-                        class="w-full bg-zinc-950 border border-zinc-700 text-red-500 font-mono text-center tracking-widest py-3 px-4 focus:outline-none focus:border-red-600 transition uppercase placeholder-zinc-700"
-                        onkeypress="handlePasscodeKeyPress(event)">
-                </div>
-                <button onclick="checkPasscode()" 
-                    class="w-full bg-red-700 hover:bg-red-600 text-black font-sans font-bold text-2xl uppercase tracking-widest py-3 transition transform active:scale-95">
-                    PÉNÉTRER DANS LE CLUB
-                </button>
-            </div>
+      <h1 class="text-4xl md:text-5xl font-black uppercase tracking-widest text-white mb-2 glitch" data-text="FIGHT CLUB 66">
+        FIGHT CLUB 66
+      </h1>
+      <p class="text-red-600 font-mono text-sm tracking-widest mb-8 uppercase font-bold">[ ÉCRAN SÉCURISÉ ]</p>
 
-            <p id="passcode-error" class="text-red-500 font-mono text-xs mt-4 hidden">
-                CODE INCORRECT. VOUS N'ÊTES PAS LE BIENVENU ICI.
-            </p>
-            
-            <p class="text-zinc-600 font-mono text-[10px] mt-6">
-                RÈGLE N°1: VOUS NE PARLEZ PAS DU FIGHT CLUB.
-            </p>
-        </div>
-    </div>
-
-    <!-- CONTENU PRINCIPAL DU SITE -->
-    <div id="main-content" class="min-h-full flex flex-col hidden">
+      <div class="w-full bg-zinc-900/90 border border-zinc-800 p-6 rounded-lg shadow-2xl backdrop-blur-md">
+        <label for="passcode" class="block text-xs uppercase font-mono tracking-widest text-gray-400 mb-2">Entrez le code d'accès :</label>
         
-        <!-- HEADER -->
-        <header class="border-b border-zinc-800 bg-zinc-950/80 sticky top-0 z-30 backdrop-blur">
-            <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
-                <div class="flex items-center gap-3">
-                    <div class="glitch-wrapper">
-                        <span class="glitch text-3xl font-bold text-white tracking-widest" data-text="FIGHT CLUB 66">FIGHT CLUB 66</span>
-                    </div>
-                </div>
+        <form onsubmit="handlePasscodeSubmit(event)" class="flex flex-col gap-3">
+          <div class="relative">
+            <input 
+              type="password" 
+              id="passcode" 
+              placeholder="••••••••" 
+              class="w-full bg-black/60 border border-zinc-700 focus:border-red-600 focus:ring-1 focus:ring-red-600 text-center text-white tracking-widest text-lg font-mono rounded py-3 px-4 outline-none transition-all placeholder-zinc-600"
+              autocomplete="off"
+            >
+            <i class="fa-solid fa-lock absolute right-4 top-1/2 -translate-y-1/2 text-zinc-600"></i>
+          </div>
 
-                <!-- STATUT ADMIN & ACTIONS -->
-                <div class="flex items-center gap-4">
-                    <div id="admin-badge" class="hidden items-center gap-2 bg-red-950/50 border border-red-800 text-red-400 font-mono text-xs px-3 py-1.5">
-                        <i data-lucide="shield-check" class="w-4 h-4"></i>
-                        <span>MODE ADMINISTRATEUR</span>
-                    </div>
+          <button 
+            type="submit" 
+            class="w-full bg-red-700 hover:bg-red-600 text-white font-bold py-3 uppercase tracking-wider rounded transition-all duration-200 red-glow flex items-center justify-center gap-2 group"
+          >
+            <span>Déverrouiller</span>
+            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+          </button>
+        </form>
 
-                    <button id="admin-toggle-btn" onclick="toggleAdminModal()" class="flex items-center gap-2 border border-zinc-700 hover:border-zinc-500 font-mono text-xs px-3 py-1.5 text-zinc-300 transition">
-                        <i data-lucide="lock" class="w-4 h-4"></i>
-                        <span id="admin-btn-text">ACCÈS ADMIN</span>
-                    </button>
-                </div>
-            </div>
-        </header>
+        <p id="lockError" class="text-red-500 font-mono text-xs mt-3 hidden flex items-center justify-center gap-1">
+          <i class="fa-solid fa-triangle-exclamation"></i> Code incorrect. Indice : "fightclub"
+        </p>
+      </div>
 
-        <!-- CONTENU -->
-        <main class="flex-grow max-w-6xl w-full mx-auto px-4 py-8 space-y-10">
-            
-            <!-- REGLES D'OR -->
-            <section class="bg-zinc-950 border border-zinc-900 p-6 relative overflow-hidden">
-                <div class="absolute -right-10 -bottom-10 opacity-5 pointer-events-none">
-                    <i data-lucide="skull" class="w-64 h-64 text-white"></i>
-                </div>
-                <h2 class="text-3xl text-red-600 font-bold uppercase mb-4 tracking-wider flex items-center gap-2">
-                    <i data-lucide="alert-triangle" class="w-6 h-6"></i> LES RÈGLES DU CLUB
-                </h2>
-                <div class="grid md:grid-cols-2 gap-4 font-mono text-sm text-zinc-400">
-                    <p><span class="text-white font-bold">1.</span> Vous ne parlez pas du Fight Club.</p>
-                    <p><span class="text-white font-bold">2.</span> Vous NE PARLEZ PAS du Fight Club !</p>
-                    <p><span class="text-white font-bold">3.</span> Si quelqu'un crie "stop", s'écroule ou étouffe, le combat est terminé.</p>
-                    <p><span class="text-white font-bold">4.</span> Seulement deux hommes par combat.</p>
-                    <p><span class="text-white font-bold">5.</span> Un combat à la fois.</p>
-                    <p><span class="text-white font-bold">6.</span> Pas de chemise, pas de chaussures.</p>
-                </div>
-            </section>
-
-            <!-- SECTION NOUVEAU COMBAT (ADMIN SEULEMENT) -->
-            <section id="admin-panel" class="hidden bg-zinc-900/60 border border-red-900/50 p-6 space-y-4">
-                <h2 class="text-2xl text-red-500 font-bold uppercase tracking-wider flex items-center gap-2">
-                    <i data-lucide="plus-circle" class="w-5 h-5"></i> PROGRAMMER UN NOUVEAU COMBAT
-                </h2>
-                <form id="add-fight-form" onsubmit="handleAddFight(event)" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 font-mono text-sm">
-                    <div>
-                        <label class="block text-zinc-400 mb-1 text-xs">LIEU DU COMBAT</label>
-                        <input type="text" id="fight-location" required placeholder="Ex: SS Lou, Rue de la Paix" class="w-full bg-black border border-zinc-700 p-2 text-white focus:border-red-600 outline-none">
-                    </div>
-                    <div>
-                        <label class="block text-zinc-400 mb-1 text-xs">DATE ET HEURE</label>
-                        <input type="datetime-local" id="fight-date" required class="w-full bg-black border border-zinc-700 p-2 text-white focus:border-red-600 outline-none">
-                    </div>
-                    <div>
-                        <label class="block text-zinc-400 mb-1 text-xs">CATÉGORIE / PAYS</label>
-                        <input type="text" id="fight-category" placeholder="Ex: Poids Lourd / Clandestin" class="w-full bg-black border border-zinc-700 p-2 text-white focus:border-red-600 outline-none">
-                    </div>
-                    <div class="flex items-end">
-                        <button type="submit" class="w-full bg-red-700 hover:bg-red-600 text-black font-sans font-bold text-xl uppercase tracking-wider py-2 transition">
-                            PUBLIER LE COMBAT
-                        </button>
-                    </div>
-                </form>
-            </section>
-
-            <!-- LISTE DES COMBATS PROCHAINS -->
-            <section class="space-y-6">
-                <div class="flex justify-between items-end border-b border-zinc-800 pb-2">
-                    <h2 class="text-4xl font-bold uppercase tracking-widest text-white">PROCHAINS AFFRONTEMENTS</h2>
-                    <span id="fight-count" class="font-mono text-zinc-500 text-sm">0 COMBAT(S) AU PROGRAMME</span>
-                </div>
-
-                <div id="fights-list" class="grid grid-cols-1 gap-6">
-                    <!-- Généré dynamiquement -->
-                </div>
-            </section>
-
-        </main>
-
-        <!-- FOOTER -->
-        <footer class="border-t border-zinc-900 bg-black py-6 text-center font-mono text-xs text-zinc-600 space-y-2">
-            <p>PROJET MAYHEM © — TOUS DROITS RÉSERVÉS</p>
-            <p class="text-[10px] text-zinc-700">"C'est seulement quand on a tout perdu qu'on est libre de faire tout ce qu'on veut."</p>
-        </footer>
+      <div class="mt-8 text-zinc-600 font-mono text-xs">
+        RULE #1: You do not talk about FIGHT CLUB 66.
+      </div>
     </div>
+  </div>
 
-    <!-- MODAL D'INSCRIPTION UN COMBATTANT -->
-    <div id="fighter-modal" class="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4 hidden">
-        <div class="max-w-md w-full bg-zinc-950 border border-red-900 p-6 space-y-4">
-            <div class="flex justify-between items-center border-b border-zinc-800 pb-2">
-                <h3 class="text-2xl text-red-500 font-bold uppercase">REJOINDRE LE RING</h3>
-                <button onclick="closeFighterModal()" class="text-zinc-500 hover:text-white"><i data-lucide="x"></i></button>
+  <!-- ==================== MAIN SITE CONTENT ==================== -->
+  <div id="mainContent" class="hidden min-h-screen flex flex-col">
+
+    <!-- HEADER / NAVBAR -->
+    <header class="border-b border-zinc-800 bg-black/80 backdrop-blur-md sticky top-0 z-30">
+      <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-6 bg-soap rounded flex items-center justify-center shadow-md transform -rotate-6">
+            <span class="font-title text-[9px] text-pink-950 leading-none">FC66</span>
+          </div>
+          <h2 class="font-title text-xl text-white tracking-wider glitch" data-text="FIGHT CLUB 66">FIGHT CLUB 66</h2>
+        </div>
+
+        <div class="flex items-center gap-4">
+          <!-- Admin Status / Toggle Button -->
+          <div id="adminBadge" class="hidden items-center gap-2 bg-red-950/60 border border-red-800 text-red-400 px-3 py-1 rounded text-xs font-mono">
+            <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+            MODE ADMIN ACTIF
+          </div>
+
+          <button 
+            id="adminToggleBtn" 
+            onclick="handleAdminButtonClick()" 
+            class="text-xs font-mono uppercase bg-zinc-900 border border-zinc-700 hover:border-zinc-500 text-zinc-300 hover:text-white px-3 py-2 rounded transition-all flex items-center gap-2"
+          >
+            <i class="fa-solid fa-user-shield"></i>
+            <span id="adminBtnText">Accès Admin</span>
+          </button>
+
+          <button 
+            onclick="lockSite()" 
+            class="text-xs font-mono uppercase bg-zinc-900 border border-zinc-800 hover:border-red-900 text-zinc-400 hover:text-red-400 p-2 rounded transition-all"
+            title="Verrouiller le site"
+          >
+            <i class="fa-solid fa-power-off"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO BANNER -->
+    <section class="relative py-12 px-4 border-b border-zinc-900 bg-gradient-to-b from-zinc-950 to-darkBg">
+      <div class="max-w-4xl mx-auto text-center">
+        <p class="font-mono text-red-600 text-xs tracking-widest uppercase mb-2">/// PLANNING DES RENCONTRES ///</p>
+        <h1 class="text-3xl md:text-5xl font-black uppercase text-white tracking-tight mb-4">
+          PROCHAINS COMBATS SOUTERRAINS
+        </h1>
+        <p class="text-zinc-400 max-w-xl mx-auto text-sm md:text-base">
+          Consultez les dates, les lieux secrets, ou inscrivez-vous sur la liste des combattants. Souvenez-vous des règles.
+        </p>
+      </div>
+    </section>
+
+    <!-- MAIN BODY CONTAINER -->
+    <main class="flex-grow max-w-6xl w-full mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+      <!-- LEFT 2 COLUMNS: LIST OF FIGHTS -->
+      <section class="lg:col-span-2 space-y-6">
+        <div class="flex items-center justify-between border-b border-zinc-800 pb-3">
+          <h2 class="text-lg font-bold uppercase tracking-wider text-white flex items-center gap-2">
+            <i class="fa-solid fa-calendar-days text-red-600"></i>
+            Événements Maires
+          </h2>
+          <span id="fightCount" class="text-xs font-mono text-zinc-500">0 combats programmés</span>
+        </div>
+
+        <!-- Fights Container -->
+        <div id="fightsList" class="space-y-6">
+          <!-- Fight cards dynamically injected here -->
+        </div>
+      </section>
+
+      <!-- RIGHT COLUMN: RULES & ADMIN CREATION PANEL -->
+      <section class="space-y-6">
+
+        <!-- ADMIN CREATION PANEL (Only visible when isAdmin is true) -->
+        <div id="adminPanel" class="hidden bg-zinc-900/90 border border-red-900/60 p-6 rounded-lg shadow-2xl relative overflow-hidden">
+          <div class="absolute top-0 right-0 bg-red-700 text-white text-[10px] font-mono px-2 py-0.5 font-bold uppercase">
+            Panneau d'Administration
+          </div>
+
+          <h3 class="text-base font-bold uppercase tracking-wider text-white mb-4 flex items-center gap-2">
+            <i class="fa-solid fa-plus text-red-500"></i>
+            Ajouter un Combat
+          </h3>
+
+          <form onsubmit="handleAddFight(event)" class="space-y-4">
+            <div>
+              <label class="block text-xs font-mono text-zinc-400 mb-1">Titre de l'Événement *</label>
+              <input type="text" id="fightTitle" required placeholder="ex: NUIT DU SOUS-SOL" class="w-full bg-black border border-zinc-800 focus:border-red-600 text-sm text-white p-2.5 rounded outline-none font-sans">
             </div>
+
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-mono text-zinc-400 mb-1">Date *</label>
+                <input type="text" id="fightDate" required placeholder="ex: 15 OCT 2026" class="w-full bg-black border border-zinc-800 focus:border-red-600 text-sm text-white p-2.5 rounded outline-none font-sans">
+              </div>
+              <div>
+                <label class="block text-xs font-mono text-zinc-400 mb-1">Heure *</label>
+                <input type="text" id="fightTime" required placeholder="ex: 23H00" class="w-full bg-black border border-zinc-800 focus:border-red-600 text-sm text-white p-2.5 rounded outline-none font-sans">
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-mono text-zinc-400 mb-1">Lieu Secret *</label>
+              <input type="text" id="fightLocation" required placeholder="ex: Parking Sous-sol - Rue Paper St." class="w-full bg-black border border-zinc-800 focus:border-red-600 text-sm text-white p-2.5 rounded outline-none font-sans">
+            </div>
+
+            <div>
+              <label class="block text-xs font-mono text-zinc-400 mb-1">Description / Règles spéciales</label>
+              <textarea id="fightDesc" rows="2" placeholder="Informations complémentaires..." class="w-full bg-black border border-zinc-800 focus:border-red-600 text-sm text-white p-2.5 rounded outline-none font-sans resize-none"></textarea>
+            </div>
+
+            <button type="submit" class="w-full bg-red-700 hover:bg-red-600 text-white font-bold py-2.5 uppercase text-xs tracking-wider rounded transition-colors flex items-center justify-center gap-2">
+              <i class="fa-solid fa-check"></i>
+              Publier le Combat
+            </button>
+          </form>
+        </div>
+
+        <!-- RULES CARD -->
+        <div class="bg-zinc-900/40 border border-zinc-800 p-6 rounded-lg">
+          <h3 class="font-title text-xl text-soap mb-4 flex items-center gap-2">
+            <i class="fa-solid fa-book-skull text-red-600"></i>
+            LES 8 RÈGLES
+          </h3>
+          <ol class="space-y-3 font-mono text-xs text-zinc-400 list-decimal list-inside leading-relaxed">
+            <li><span class="text-zinc-200">Vous ne parlez pas du Fight Club 66.</span></li>
+            <li><span class="text-zinc-200">Vous NE PARLEZ PAS du Fight Club 66.</span></li>
+            <li>Si quelqu'un crie "stop", s'écroule ou étouffe, le combat est terminé.</li>
+            <li>Seulement deux hommes par combat.</li>
+            <li>Un seul combat à la fois.</li>
+            <li>Pas de chemise, pas de chaussures.</li>
+            <li>Les combats dureront aussi longtemps qu'il le faudra.</li>
+            <li>Si c'est votre première nuit au Fight Club 66, <span class="text-red-500 font-bold">VOUS DEVEZ COMBATTRE.</span></li>
+          </ol>
+        </div>
+
+      </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-zinc-900 py-6 text-center font-mono text-xs text-zinc-600">
+      <p>FIGHT CLUB 66 &copy; Projet Non Officiel - Project Mayhem</p>
+    </footer>
+
+  </div>
+
+  <!-- ==================== MODAL: FIGHTER REGISTRATION ==================== -->
+  <div id="registerModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-zinc-900 border border-zinc-800 rounded-lg max-w-md w-full p-6 relative">
+      <button onclick="closeRegisterModal()" class="absolute top-4 right-4 text-zinc-500 hover:text-white">
+        <i class="fa-solid fa-xmark text-xl"></i>
+      </button>
+
+      <h3 class="text-lg font-bold text-white uppercase tracking-wider mb-1 flex items-center gap-2">
+        <i class="fa-solid fa-hand-fist text-red-600"></i>
+        S'inscrire au Combat
+      </h3>
+      <p id="modalFightTitle" class="text-xs font-mono text-red-500 mb-6"></p>
+
+      <form onsubmit="handleRegisterFighter(event)" class="space-y-4">
+        <input type="hidden" id="modalFightId">
+
+        <div>
+          <label class="block text-xs font-mono text-zinc-400 mb-1">Nom / Pseudo de Combattant *</label>
+          <input type="text" id="fighterName" required placeholder="ex: Tyler D." class="w-full bg-black border border-zinc-800 focus:border-red-600 text-sm text-white p-2.5 rounded outline-none font-sans">
+        </div>
+
+        <div>
+          <label class="block text-xs font-mono text-zinc-400 mb-1">Poids approx. (kg)</label>
+          <input type="text" id="fighterWeight" placeholder="ex: 78 kg" class="w-full bg-black border border-zinc-800 focus:border-red-600 text-sm text-white p-2.5 rounded outline-none font-sans">
+        </div>
+
+        <div class="bg-zinc-950 p-3 rounded border border-zinc-800 text-[11px] font-mono text-zinc-400">
+          ⚠️ En vous inscrivant, vous acceptez la règle #8 : Si c'est votre première nuit, vous devez combattre.
+        </div>
+
+        <div class="flex gap-3 pt-2">
+          <button type="button" onclick="closeRegisterModal()" class="w-1/2 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 font-bold py-2.5 rounded text-xs uppercase tracking-wider">
+            Annuler
+          </button>
+          <button type="submit" class="w-1/2 bg-red-700 hover:bg-red-600 text-white font-bold py-2.5 rounded text-xs uppercase tracking-wider transition-colors">
+            Confirmer
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL: ADMIN LOGIN ==================== -->
+  <div id="adminModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-zinc-900 border border-red-900/80 rounded-lg max-w-sm w-full p-6 relative">
+      <button onclick="closeAdminModal()" class="absolute top-4 right-4 text-zinc-500 hover:text-white">
+        <i class="fa-solid fa-xmark text-xl"></i>
+      </button>
+
+      <div class="text-center mb-6">
+        <div class="w-12 h-12 bg-red-950/80 border border-red-700 rounded-full flex items-center justify-center mx-auto mb-3">
+          <i class="fa-solid fa-user-shield text-red-500 text-xl"></i>
+        </div>
+        <h3 class="text-lg font-bold text-white uppercase tracking-wider">Accès Administrateur</h3>
+        <p class="text-xs font-mono text-zinc-400 mt-1">Saisissez le mot de passe maître pour déverrouiller la gestion.</p>
+      </div>
+
+      <form onsubmit="loginAdmin(event)" class="space-y-4">
+        <div>
+          <label for="adminPassword" class="block text-xs font-mono text-zinc-400 mb-1">Mot de passe Admin</label>
+          <input 
+            type="password" 
+            id="adminPassword" 
+            required 
+            placeholder="••••••••" 
+            class="w-full bg-black border border-zinc-800 focus:border-red-600 text-center text-white text-base tracking-widest p-2.5 rounded outline-none font-mono"
+            autocomplete="off"
+          >
+        </div>
+
+        <p id="adminError" class="text-red-500 font-mono text-xs text-center hidden">
+          <i class="fa-solid fa-circle-exclamation"></i> Mot de passe incorrect.
+        </p>
+
+        <div class="flex gap-2 pt-2">
+          <button type="button" onclick="closeAdminModal()" class="w-1/2 bg-zinc-800 hover:bg-zinc-700 text-zinc-300 font-bold py-2.5 rounded text-xs uppercase tracking-wider">
+            Annuler
+          </button>
+          <button type="submit" class="w-1/2 bg-red-700 hover:bg-red-600 text-white font-bold py-2.5 rounded text-xs uppercase tracking-wider">
+            Valider
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==================== JAVASCRIPT LOGIC ==================== -->
+  <script>
+    // SHA-256 Hash du mot de passe admin "chaoslegoat"
+    const ADMIN_HASH = "1507d3fa8fcd21589c31fa76d4cdfc7f8eb9e13d962ea9ce5180f2d4f23b2cbe";
+
+    // Initial Fights Data Structure
+    const defaultFights = [
+      {
+        id: 'f1',
+        title: 'COMBAT D\'OUVERTURE - SOUS-SOL DU LOU's',
+        date: '24 OCT 2026',
+        time: '22H30',
+        location: 'Sous-Sol du Lou\'s Bar, Zone Industrielle',
+        description: 'Premier rassemblement de la saison. Venez prêts.',
+        fighters: [
+          { name: 'Tyler D.', weight: '77 kg' },
+          { name: 'Le Narrateur', weight: '72 kg' }
+        ]
+      },
+      {
+        id: 'f2',
+        title: 'SESSION NOCTURNE - PARKING NOIR',
+        date: '31 OCT 2026',
+        time: '23H59',
+        location: 'Parking Souterrain Niveau -3, Centre',
+        description: 'Aucune lumière artificielle autorisée hors du cercle.',
+        fighters: [
+          { name: 'Angel Face', weight: '70 kg' }
+        ]
+      }
+    ];
+
+    // App State
+    let fights = [];
+    let isAdmin = false;
+
+    // Helper: Algorithme de Hachage SHA-256 pour vérifier le mot de passe en toute sécurité
+    async function sha256(str) {
+      const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(str));
+      return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+
+    // Initialize App Data
+    function initData() {
+      const stored = localStorage.getItem('fc66_fights');
+      if (stored) {
+        try {
+          fights = JSON.parse(stored);
+        } catch(e) {
+          fights = defaultFights;
+        }
+      } else {
+        fights = defaultFights;
+        saveFights();
+      }
+
+      // Check session storage for passcode
+      if (sessionStorage.getItem('fc66_unlocked') === 'true') {
+        document.getElementById('lockScreen').classList.add('hidden');
+        document.getElementById('mainContent').classList.remove('hidden');
+      }
+
+      // Check admin status
+      if (sessionStorage.getItem('fc66_admin') === 'true') {
+        isAdmin = true;
+      }
+
+      updateUI();
+    }
+
+    function saveFights() {
+      localStorage.setItem('fc66_fights', JSON.stringify(fights));
+    }
+
+    // Passcode Unlock Screen Logic
+    function handlePasscodeSubmit(e) {
+      e.preventDefault();
+      const code = document.getElementById('passcode').value.trim().toLowerCase();
+      
+      if (code === 'fightclub') {
+        sessionStorage.setItem('fc66_unlocked', 'true');
+        document.getElementById('lockScreen').classList.add('opacity-0');
+        setTimeout(() => {
+          document.getElementById('lockScreen').classList.add('hidden');
+          document.getElementById('mainContent').classList.remove('hidden');
+        }, 500);
+      } else {
+        document.getElementById('lockError').classList.remove('hidden');
+      }
+    }
+
+    function lockSite() {
+      sessionStorage.removeItem('fc66_unlocked');
+      location.reload();
+    }
+
+    // Admin Access Management
+    function handleAdminButtonClick() {
+      if (isAdmin) {
+        // Logout Admin
+        isAdmin = false;
+        sessionStorage.removeItem('fc66_admin');
+        updateUI();
+      } else {
+        // Open Admin Password Modal
+        document.getElementById('adminPassword').value = '';
+        document.getElementById('adminError').classList.add('hidden');
+        document.getElementById('adminModal').classList.remove('hidden');
+      }
+    }
+
+    function closeAdminModal() {
+      document.getElementById('adminModal').classList.add('hidden');
+    }
+
+    async function loginAdmin(e) {
+      e.preventDefault();
+      const input = document.getElementById('adminPassword').value.trim();
+      const inputHash = await sha256(input);
+
+      if (inputHash === ADMIN_HASH) {
+        isAdmin = true;
+        sessionStorage.setItem('fc66_admin', 'true');
+        closeAdminModal();
+        updateUI();
+      } else {
+        document.getElementById('adminError').classList.remove('hidden');
+      }
+    }
+
+    // Render Fights UI
+    function renderFights() {
+      const container = document.getElementById('fightsList');
+      const countLabel = document.getElementById('fightCount');
+      
+      countLabel.textContent = `${fights.length} combat${fights.length > 1 ? 's' : ''} programmé${fights.length > 1 ? 's' : ''}`;
+
+      if (fights.length === 0) {
+        container.innerHTML = `
+          <div class="bg-zinc-900/40 border border-zinc-800 p-8 rounded-lg text-center font-mono text-zinc-500">
+            <i class="fa-solid fa-ghost text-3xl mb-2 text-zinc-600"></i>
+            <p>Aucun combat programmé pour le moment.</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = fights.map((fight) => {
+        const fightersList = fight.fighters || [];
+        const isFull = fightersList.length >= 2;
+
+        return `
+          <div class="bg-zinc-900/80 border border-zinc-800 hover:border-zinc-700 transition-all rounded-lg p-5 md:p-6 relative">
             
-            <p class="font-mono text-xs text-zinc-400">
-                Inscrivez votre nom ou votre pseudonyme de combattant. Une fois inscrit, vous ne pouvez plus faire marche arrière.
+            <!-- Delete Button for Admins -->
+            ${isAdmin ? `
+              <button onclick="deleteFight('${fight.id}')" class="absolute top-4 right-4 text-zinc-600 hover:text-red-500 transition-colors p-1" title="Supprimer ce combat">
+                <i class="fa-solid fa-trash-can"></i>
+              </button>
+            ` : ''}
+
+            <div class="flex flex-wrap items-center gap-3 mb-3 text-xs font-mono">
+              <span class="bg-red-950 text-red-400 border border-red-800/80 px-2.5 py-1 rounded font-bold">
+                <i class="fa-solid fa-calendar text-xs mr-1"></i> ${fight.date}
+              </span>
+              <span class="bg-zinc-800 text-zinc-300 px-2.5 py-1 rounded">
+                <i class="fa-solid fa-clock text-xs mr-1"></i> ${fight.time}
+              </span>
+            </div>
+
+            <h3 class="text-xl font-black text-white uppercase tracking-wide mb-2">${fight.title}</h3>
+            
+            <p class="text-xs font-mono text-zinc-400 mb-4 flex items-start gap-1.5">
+              <i class="fa-solid fa-location-dot text-red-500 mt-0.5"></i>
+              <span>Lieu : <strong class="text-zinc-200">${fight.location}</strong></span>
             </p>
 
-            <form onsubmit="handleRegisterFighter(event)" class="space-y-4 font-mono text-sm">
-                <input type="hidden" id="modal-fight-id">
-                <div>
-                    <label class="block text-zinc-400 mb-1 text-xs">NOM / PSEUDONYME DE COMBATTANT</label>
-                    <input type="text" id="fighter-name" required placeholder="Ex: Tyler D." class="w-full bg-black border border-zinc-700 p-2.5 text-white focus:border-red-600 outline-none">
-                </div>
-                <div>
-                    <label class="block text-zinc-400 mb-1 text-xs">PAYS / VILLE</label>
-                    <input type="text" id="fighter-origin" placeholder="Ex: Ouarzazate" class="w-full bg-black border border-zinc-700 p-2.5 text-white focus:border-red-600 outline-none">
-                </div>
+            ${fight.description ? `<p class="text-sm text-zinc-400 mb-5 bg-black/40 p-3 rounded border border-zinc-800/50">${fight.description}</p>` : ''}
 
-                <div class="flex gap-2 pt-2">
-                    <button type="button" onclick="closeFighterModal()" class="w-1/2 border border-zinc-700 text-zinc-400 hover:bg-zinc-900 py-2">ANNULER</button>
-                    <button type="submit" class="w-1/2 bg-red-700 hover:bg-red-600 text-black font-bold font-sans text-xl tracking-wider py-2">SIGNER SANG</button>
-                </div>
-            </form>
-        </div>
-    </div>
+            <!-- Fighters Section -->
+            <div class="border-t border-zinc-800/80 pt-4 mt-4">
+              <div class="flex justify-between items-center mb-3">
+                <span class="text-xs font-mono uppercase text-zinc-400 font-bold">
+                  Combattants Inscrits (${fightersList.length}/2)
+                </span>
+                ${isFull ? `
+                  <span class="text-[10px] font-mono bg-zinc-800 text-zinc-400 px-2 py-0.5 rounded uppercase">Complet</span>
+                ` : ''}
+              </div>
 
-    <!-- MODAL MOT DE PASSE ADMIN -->
-    <div id="admin-modal" class="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4 hidden">
-        <div class="max-w-md w-full bg-zinc-950 border border-zinc-800 p-6 space-y-4">
-            <div class="flex justify-between items-center border-b border-zinc-800 pb-2">
-                <h3 class="text-2xl text-white font-bold uppercase flex items-center gap-2">
-                    <i data-lucide="shield-alert" class="w-5 h-5 text-red-600"></i> IDENTIFICATION ADMIN
-                </h3>
-                <button onclick="toggleAdminModal()" class="text-zinc-500 hover:text-white"><i data-lucide="x"></i></button>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
+                ${fightersList.map((f, index) => `
+                  <div class="bg-black/60 border border-zinc-800 p-3 rounded flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                      <span class="w-6 h-6 rounded-full bg-zinc-800 text-red-500 font-mono text-xs font-bold flex items-center justify-center">
+                        ${index + 1}
+                      </span>
+                      <div>
+                        <div class="text-sm font-bold text-white">${f.name}</div>${f.weight ? `<div class="text-[10px] font-mono text-zinc-500">${f.weight}</div>` : ''}
+                      </div>
+                    </div>
+                    ${isAdmin ? `
+                      <button onclick="removeFighter('${fight.id}', ${index})" class="text-zinc-600 hover:text-red-400 text-xs p-1" title="Retirer le combattant">
+                        <i class="fa-solid fa-xmark"></i>
+                      </button>
+                    ` : ''}
+                  </div>
+                `).join('')}
+
+                ${Array.from({ length: 2 - fightersList.length }).map(() => `
+                  <div class="border border-dashed border-zinc-800 p-3 rounded flex items-center justify-center text-xs font-mono text-zinc-600">
+                    Slot Disponible
+                  </div>
+                `).join('')}
+              </div>
+
+              ${!isFull ? `
+                <button 
+                  onclick="openRegisterModal('${fight.id}', '${fight.title}')" 
+                  class="w-full bg-zinc-800 hover:bg-red-700 text-zinc-200 hover:text-white font-bold py-2 px-4 rounded text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 border border-zinc-700 hover:border-red-600"
+                >
+                  <i class="fa-solid fa-user-plus"></i>
+                  S'inscrire comme combattant
+                </button>
+              ` : ''}
             </div>
-            
-            <p class="font-mono text-xs text-zinc-400">
-                Saisissez le mot de passe maître administrateur pour modifier la liste des combats.
-            </p>
 
-            <form onsubmit="handleAdminLogin(event)" class="space-y-4 font-mono text-sm">
-                <div>
-                    <label class="block text-zinc-400 mb-1 text-xs">MOT DE PASSE ADMINISTRATEUR</label>
-                    <input type="password" id="admin-password-input" required placeholder="••••••••••••" class="w-full bg-black border border-zinc-700 p-2.5 text-red-500 focus:border-red-600 outline-none tracking-widest">
-                </div>
+          </div>
+        `;
+      }).join('');
+    }
 
-                <p id="admin-modal-error" class="text-red-500 font-mono text-xs hidden">
-                    MOT DE PASSE INCORRECT. ACCÈS REFUSÉ.
-                </p>
+    function updateUI() {
+      // Toggle Admin Panel & Status
+      const adminPanel = document.getElementById('adminPanel');
+      const adminBadge = document.getElementById('adminBadge');
+      const adminBtnText = document.getElementById('adminBtnText');
 
-                <div class="flex gap-2 pt-2">
-                    <button type="button" onclick="toggleAdminModal()" class="w-1/2 border border-zinc-700 text-zinc-400 hover:bg-zinc-900 py-2">ANNULER</button>
-                    <button type="submit" class="w-1/2 bg-red-700 hover:bg-red-600 text-black font-bold font-sans text-xl tracking-wider py-2">DÉVERROUILLER</button>
-                </div>
-            </form>
-        </div>
-    </div>
+      if (isAdmin) {
+        adminPanel.classList.remove('hidden');
+        adminBadge.classList.remove('hidden');
+        adminBadge.classList.add('flex');
+        adminBtnText.textContent = 'Déconnexion Admin';
+      } else {
+        adminPanel.classList.add('hidden');
+        adminBadge.classList.add('hidden');
+        adminBadge.classList.remove('flex');
+        adminBtnText.textContent = 'Accès Admin';
+      }
 
-    <!-- SCRIPT APPLICATION -->
-    <script>
-        // Mot de passe accès visiteur
-        const SITE_PASSPHRASE = "fightclub";
+      renderFights();
+    }
 
-        // Hash SHA-256 personnalisé (100% JS autonome, fonctionne sur file://)
-        function sha256(ascii) {
-            function mathPow(n) { return Math.pow(n, 1/2); }
-            function fractional(n) { return ((n - Math.floor(n)) * 0x100000000) | 0; }
-            var K = [], i = 0, hash = [], maxPos = 1;
-            while (i < 64) {
-                if (maxPos) {
-                    var isPrime = true;
-                    for (var p = 2; p * p <= (i + 2); p++) {
-                        if ((i + 2) % p === 0) { isPrime = false; break; }
-                    }
-                    if (isPrime) {
-                        K[i] = fractional(mathPow(i + 2));
-                        if (i < 8) hash[i] = fractional(Math.pow(i + 2, 1/3));
-                        i++;
-                    }
-                }
-                maxPos++;
-            }
-            var bytes = [];
-            for (var j = 0; j < ascii.length; j++) {
-                var c = ascii.charCodeAt(j);
-                if (c < 128) bytes.push(c);
-                else if (c < 2048) bytes.push((c >> 6) | 192, (c & 63) | 128);
-                else if ((c & 0xFC00) === 0xD800 && j + 1 < ascii.length && (ascii.charCodeAt(j + 1) & 0xFC00) === 0xDC00) {
-                    c = 0x10000 + ((c & 0x03FF) << 10) + (ascii.charCodeAt(j + 1) & 0x03FF); j++;
-                    bytes.push((c >> 18) | 240, ((c >> 12) & 63) | 128, ((c >> 6) & 63) | 128, (c & 63) | 128);
-                } else bytes.push((c >> 12) | 224, ((c >> 6) & 63) | 128, (c & 63) | 128);
-            }
-            var l = bytes.length;
-            bytes.push(0x80);
-            while ((bytes.length % 64) !== 56) bytes.push(0);
-            bytes.push(0, 0, 0, 0, (l >>> 29), ((l << 3) >>> 24) & 255, ((l << 3) >>> 16) & 255, ((l << 3) >>> 8) & 255, (l << 3) & 255);
-            
-            function rightRotate(value, amount) { return (value >>> amount) | (value << (32 - amount)); }
-            
-            var w = new Array(64);
-            for (var i = 0; i < bytes.length; i += 64) {
-                for (var j = 0; j < 16; j++) {
-                    w[j] = (bytes[i + j * 4] << 24) | (bytes[i + j * 4 + 1] << 16) | (bytes[i + j * 4 + 2] << 8) | (bytes[i + j * 4 + 3]);
-                }
-                for (var j = 16; j < 64; j++) {
-                    var s0 = rightRotate(w[j - 15], 7) ^ rightRotate(w[j - 15], 18) ^ (w[j - 15] >>> 3);
-                    var s1 = rightRotate(w[j - 2], 17) ^ rightRotate(w[j - 2], 19) ^ (w[j - 2] >>> 10);
-                    w[j] = (w[j - 16] + s0 + w[j - 7] + s1) | 0;
-                }
-                var a = hash[0], b = hash[1], c = hash[2], d = hash[3], e = hash[4], f = hash[5], g = hash[6], h = hash[7];
-                for (var j = 0; j < 64; j++) {
-                    var S1 = rightRotate(e, 6) ^ rightRotate(e, 11) ^ rightRotate(e, 25);
-                    var ch = (e & f) ^ ((~e) & g);
-                    var temp1 = (h + S1 + ch + K[j] + w[j]) | 0;
-                    var S0 = rightRotate(a, 2) ^ rightRotate(a, 13) ^ rightRotate(a, 22);
-                    var maj = (a & b) ^ (a & c) ^ (b & c);
-                    var temp2 = (S0 + maj) | 0;
-                    h = g; g = f; f = e; e = (d + temp1) | 0; d = c; c = b; b = a; a = (temp1 + temp2) | 0;
-                }
-                hash[0] = (hash[0] + a) | 0; hash[1] = (hash[1] + b) | 0; hash[2] = (hash[2] + c) | 0; hash[3] = (hash[3] + d) | 0;
-                hash[4] = (hash[4] + e) | 0; hash[5] = (hash[5] + f) | 0; hash[6] = (hash[6] + g) | 0; hash[7] = (hash[7] + h) | 0;
-            }
-            var res = '';
-            for (var i = 0; i < 8; i++) {
-                var hex = (hash[i] >>> 0).toString(16);
-                res += ('00000000' + hex).slice(-8);
-            }
-            return res;
+    // Modal Registration Actions
+    function openRegisterModal(fightId, fightTitle) {
+      document.getElementById('modalFightId').value = fightId;
+      document.getElementById('modalFightTitle').textContent = fightTitle;
+      document.getElementById('fighterName').value = '';
+      document.getElementById('fighterWeight').value = '';
+      document.getElementById('registerModal').classList.remove('hidden');
+    }
+
+    function closeRegisterModal() {
+      document.getElementById('registerModal').classList.add('hidden');
+    }
+
+    function handleRegisterFighter(e) {
+      e.preventDefault();
+      const fightId = document.getElementById('modalFightId').value;
+      const name = document.getElementById('fighterName').value.trim();
+      const weight = document.getElementById('fighterWeight').value.trim();
+
+      if (!name) return;
+
+      const fight = fights.find(f => f.id === fightId);
+      if (fight) {
+        if (!fight.fighters) fight.fighters = [];
+        if (fight.fighters.length < 2) {
+          fight.fighters.push({ name, weight });
+          saveFights();
+          updateUI();
+          closeRegisterModal();
+        } else {
+          alert("Ce combat a déjà ses 2 combattants !");
         }
+      }
+    }
 
-        // Hash SHA-256 correspondant à "chaoslegoat"
-        const ADMIN_HASH = "1507d3fa8fcd21589c31fa76d4cdfc7f8eb9e13d962ea9ce5180f2d4f23b2cbe";
+    // Admin Fight Actions
+    function handleAddFight(e) {
+      e.preventDefault();
+      if (!isAdmin) return;
 
-        // Données par défaut si localStorage vide
-        const defaultFights = [
-            {
-                id: '1',
-                location: 'Sous-sol Abandonné - Rue Lou',
-                date: '2026-10-15T23:00',
-                category: 'Clandestin - Sans Règles',
-                fighters: [
-                    { name: 'Tyler D.', origin: 'Wilmington' },
-                    { name: 'The Narrator', origin: 'Paper St.' }
-                ]
-            },
-            {
-                id: '2',
-                location: 'Parking Souterrain Lou's Bar',
-                date: '2026-10-22T23:30',
-                category: 'Poids Moyen',
-                fighters: [
-                    { name: 'Angel Face', origin: 'Mayhem Project' }
-                ]
-            }
-        ];
+      const title = document.getElementById('fightTitle').value.trim();
+      const date = document.getElementById('fightDate').value.trim();
+      const time = document.getElementById('fightTime').value.trim();
+      const location = document.getElementById('fightLocation').value.trim();
+      const description = document.getElementById('fightDesc').value.trim();
 
-        // État de l'application
-        let fights = JSON.parse(localStorage.getItem('fc_fights')) || defaultFights;
-        let isAdmin = sessionStorage.getItem('fc_is_admin') === 'true';
+      const newFight = {
+        id: 'f_' + Date.now(),
+        title,
+        date,
+        time,
+        location,
+        description,
+        fighters: []
+      };
 
-        // Initialisation
-        document.addEventListener('DOMContentLoaded', () => {
-            lucide.createIcons();
-            
-            // Vérifier si le visiteur s'est déjà connecté durant cette session
-            if (sessionStorage.getItem('fc_access_granted') === 'true') {
-                showMainContent();
-            }
+      fights.unshift(newFight);
+      saveFights();
+      updateUI();
 
-            updateAdminUI();
-            renderFights();
-        });
+      // Reset Form
+      e.target.reset();
+    }
 
-        // Verrouillage Entrée Visiteur
-        function handlePasscodeKeyPress(e) {
-            if (e.key === 'Enter') checkPasscode();
-        }
+    function deleteFight(id) {
+      if (!isAdmin) return;
+      if (confirm("Voulez-vous vraiment supprimer ce combat ?")) {
+        fights = fights.filter(f => f.id !== id);
+        saveFights();
+        updateUI();
+      }
+    }
 
-        function checkPasscode() {
-            const input = document.getElementById('passcode-input').value.trim().toLowerCase();
-            const errorEl = document.getElementById('passcode-error');
+    function removeFighter(fightId, fighterIndex) {
+      if (!isAdmin) return;
+      const fight = fights.find(f => f.id === fightId);
+      if (fight && fight.fighters) {
+        fight.fighters.splice(fighterIndex, 1);
+        saveFights();
+        updateUI();
+      }
+    }
 
-            if (input === SITE_PASSPHRASE) {
-                sessionStorage.setItem('fc_access_granted', 'true');
-                showMainContent();
-            } else {
-                errorEl.classList.remove('hidden');
-                document.getElementById('passcode-input').value = '';
-            }
-        }
-
-        function showMainContent() {
-            document.getElementById('gatekeeper').classList.add('hidden');
-            document.getElementById('main-content').classList.remove('hidden');
-        }
-
-        // Gestion Mode Admin
-        function toggleAdminModal() {
-            if (isAdmin) {
-                // Déconnexion rapide
-                isAdmin = false;
-                sessionStorage.removeItem('fc_is_admin');
-                updateAdminUI();
-                renderFights();
-            } else {
-                const modal = document.getElementById('admin-modal');
-                document.getElementById('admin-modal-error').classList.add('hidden');
-                document.getElementById('admin-password-input').value = '';
-                modal.classList.toggle('hidden');
-            }
-        }
-
-        function handleAdminLogin(e) {
-            e.preventDefault();
-            const passwordInput = document.getElementById('admin-password-input').value;
-            const inputHash = sha256(passwordInput);
-
-            if (inputHash === ADMIN_HASH) {
-                isAdmin = true;
-                sessionStorage.setItem('fc_is_admin', 'true');
-                document.getElementById('admin-modal').classList.add('hidden');
-                updateAdminUI();
-                renderFights();
-            } else {
-                document.getElementById('admin-modal-error').classList.remove('hidden');
-            }
-        }
-
-        function updateAdminUI() {
-            const badge = document.getElementById('admin-badge');
-            const panel = document.getElementById('admin-panel');
-            const btnText = document.getElementById('admin-btn-text');
-
-            if (isAdmin) {
-                badge.classList.remove('hidden');
-                badge.classList.add('flex');
-                panel.classList.remove('hidden');
-                btnText.textContent = "DÉCONNEXION ADMIN";
-            } else {
-                badge.classList.add('hidden');
-                badge.classList.remove('flex');
-                panel.classList.add('hidden');
-                btnText.textContent = "ACCÈS ADMIN";
-            }
-        }
-
-        // Sauvegarder dans LocalStorage
-        function saveFights() {
-            localStorage.setItem('fc_fights', JSON.stringify(fights));
-        }
-
-        // Ajouter un combat (ADMIN)
-        function handleAddFight(e) {
-            e.preventDefault();
-            if (!isAdmin) return;
-
-            const location = document.getElementById('fight-location').value;
-            const date = document.getElementById('fight-date').value;
-            const category = document.getElementById('fight-category').value || 'Sans Categorie';
-
-            const newFight = {
-                id: Date.now().toString(),
-                location,
-                date,
-                category,
-                fighters: []
-            };
-
-            fights.unshift(newFight);
-            saveFights();
-            renderFights();
-
-            document.getElementById('add-fight-form').reset();
-        }
-
-        // Supprimer un combat (ADMIN)
-        function deleteFight(id) {
-            if (!isAdmin) return;
-            if (confirm("Confirmer la suppression de cet affrontement ?")) {
-                fights = fights.filter(f => f.id !== id);
-                saveFights();
-                renderFights();
-            }
-        }
-
-        // Modal Inscription Combattant
-        function openFighterModal(fightId) {
-            document.getElementById('modal-fight-id').value = fightId;
-            document.getElementById('fighter-name').value = '';
-            document.getElementById('fighter-origin').value = '';
-            document.getElementById('fighter-modal').classList.remove('hidden');
-        }
-
-        function closeFighterModal() {
-            document.getElementById('fighter-modal').classList.add('hidden');
-        }
-
-        function handleRegisterFighter(e) {
-            e.preventDefault();
-            const fightId = document.getElementById('modal-fight-id').value;
-            const name = document.getElementById('fighter-name').value.trim();
-            const origin = document.getElementById('fighter-origin').value.trim() || 'Inconnu';
-
-            const fight = fights.find(f => f.id === fightId);
-            if (fight) {
-                fight.fighters.push({ name, origin });
-                saveFights();
-                renderFights();
-                closeFighterModal();
-            }
-        }
-
-        // Retirer un combattant (ADMIN)
-        function removeFighter(fightId, fighterIndex) {
-            if (!isAdmin) return;
-            const fight = fights.find(f => f.id === fightId);
-            if (fight) {
-                fight.fighters.splice(fighterIndex, 1);
-                saveFights();
-                renderFights();
-            }
-        }
-
-        // Formater les dates
-        function formatDate(dateString) {
-            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
-            const d = new Date(dateString);
-            return d.toLocaleDateString('fr-FR', options).toUpperCase();
-        }
-
-        // Affichage dynamique des combats
-        function renderFights() {
-            const container = document.getElementById('fights-list');
-            const countEl = document.getElementById('fight-count');
-
-            countEl.textContent = `${fights.length} COMBAT(S) AU PROGRAMME`;
-
-            if (fights.length === 0) {
-                container.innerHTML = `
-                    <div class="bg-zinc-950 border border-zinc-900 p-8 text-center text-zinc-500 font-mono">
-                        AUCUN COMBAT PROGRAMMÉ POUR LE MOMENT. REVENEZ PLUS TARD.
-                    </div>
-                `;
-                return;
-            }
-
-            container.innerHTML = fights.map(fight => {
-                const isFull = fight.fighters.length >= 2;
-
-                return `
-                    <div class="bg-zinc-950 border ${isFull ? 'border-zinc-800' : 'border-red-950'} p-6 relative">
-                        
-                        <!-- BARRE SUPÉRIEURE DE LA CARTE -->
-                        <div class="flex flex-col md:flex-row justify-between items-start md:items-center border-b border-zinc-800 pb-4 gap-2">
-                            <div>
-                                <span class="bg-red-950 text-red-400 border border-red-900 font-mono text-xs px-2 py-0.5 tracking-wider uppercase">
-                                    ${fight.category}
-                                </span>
-                                <h3 class="text-3xl font-bold tracking-wide text-white mt-1">
-                                    ${fight.location}
-                                </h3>
-                            </div>
-                            <div class="font-mono text-right text-xs text-zinc-400">
-                                <div class="flex items-center gap-1 justify-start md:justify-end text-zinc-300 font-bold">
-                                    <i data-lucide="calendar" class="w-4 h-4 text-red-600"></i>
-                                    <span>${formatDate(fight.date)}</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- ZONE COMBATTANTS -->
-                        <div class="py-6">
-                            <p class="font-mono text-xs text-zinc-500 mb-4 uppercase tracking-widest">COMBATTANTS INSCRITS (${fight.fighters.length}/2)</p>
-
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <!-- SLOT COMBATTANT 1 -->
-                                <div class="bg-zinc-900/80 border border-zinc-800 p-4 flex justify-between items-center">
-                                    ${fight.fighters[0] ? `
-                                        <div>
-                                            <p class="font-bold text-xl text-white tracking-wide">${fight.fighters[0].name}</p>
-                                            <p class="font-mono text-xs text-zinc-500">${fight.fighters[0].origin}</p>
-                                        </div>
-                                        ${isAdmin ? `
-                                            <button onclick="removeFighter('${fight.id}', 0)" class="text-zinc-600 hover:text-red-500 transition" title="Supprimer le combattant">
-                                                <i data-lucide="user-minus" class="w-4 h-4"></i>
-                                            </button>
-                                        ` : '<span class="font-mono text-xs text-red-500 font-bold">PRÊT</span>'}
-                                    ` : `
-                                        <div class="text-zinc-600 font-mono text-sm uppercase">SLOT DISPONIBLE</div>
-                                    `}
-                                </div>
-
-                                <!-- SLOT COMBATTANT 2 -->
-                                <div class="bg-zinc-900/80 border border-zinc-800 p-4 flex justify-between items-center">
-                                    ${fight.fighters[1] ? `
-                                        <div>
-                                            <p class="font-bold text-xl text-white tracking-wide">${fight.fighters[1].name}</p>
-                                            <p class="font-mono text-xs text-zinc-500">${fight.fighters[1].origin}</p>
-                                        </div>
-                                        ${isAdmin ? `
-                                            <button onclick="removeFighter('${fight.id}', 1)" class="text-zinc-600 hover:text-red-500 transition" title="Supprimer le combattant">
-                                                <i data-lucide="user-minus" class="w-4 h-4"></i>
-                                            </button>
-                                        ` : '<span class="font-mono text-xs text-red-500 font-bold">PRÊT</span>'}
-                                    ` : `
-                                        <div class="text-zinc-600 font-mono text-sm uppercase">SLOT DISPONIBLE</div>
-                                    `}
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- BARRE D'ACTION BASSE -->
-                        <div class="flex flex-col sm:flex-row justify-between items-center pt-4 border-t border-zinc-900 gap-4">
-                            <div>
-                                ${isFull ? `
-                                    <span class="font-mono text-xs text-zinc-500 uppercase flex items-center gap-1">
-                                        <i data-lucide="lock" class="w-3 h-3 text-red-600"></i> AFFRONTEMENT COMPLET
-                                    </span>
-                                ` : `
-                                    <span class="font-mono text-xs text-emerald-500 uppercase flex items-center gap-1">
-                                        <i data-lucide="unlock" class="w-3 h-3"></i> PLACE DISPONIBLE
-                                    </span>
-                                `}
-                            </div>
-
-                            <div class="flex gap-2 w-full sm:w-auto">
-                                ${!isFull ? `
-                                    <button onclick="openFighterModal('${fight.id}')" class="w-full sm:w-auto bg-zinc-800 hover:bg-red-700 text-white hover:text-black font-sans font-bold text-lg uppercase tracking-wider px-6 py-1.5 transition">
-                                        REJOINDRE CE COMBAT
-                                    </button>
-                                ` : ''}
-
-                                ${isAdmin ? `
-                                    <button onclick="deleteFight('${fight.id}')" class="border border-red-900 hover:bg-red-950 text-red-500 p-2 transition" title="Supprimer le combat">
-                                        <i data-lucide="trash-2" class="w-5 h-5"></i>
-                                    </button>
-                                ` : ''}
-                            </div>
-                        </div>
-
-                    </div>
-                `;
-            }).join('');
-
-            lucide.createIcons();
-        }
-    </script>
+    // Run on Load
+    window.addEventListener('DOMContentLoaded', initData);
+  </script>
 </body>
 </html>
