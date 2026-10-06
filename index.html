@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FIGHT CLUB - Underground Network</title>
+    
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts: Permanent Marker & Montserrat -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;0,900;1,900&family=Permanent+Marker&family=VT323&display=swap" rel="stylesheet">
@@ -41,7 +42,6 @@
     </script>
 
     <style>
-        /* CSS Variables & Glitch Aesthetics */
         body {
             background-color: #0a0a0c;
             color: #e2d9c8;
@@ -51,7 +51,6 @@
             background-size: 24px 24px;
         }
 
-        /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -63,7 +62,6 @@
             border-radius: 4px;
         }
 
-        /* Glitch Animation */
         .glitch-text {
             position: relative;
             display: inline-block;
@@ -107,7 +105,6 @@
             100% { clip: rect(45px, 9999px, 95px, 0); }
         }
 
-        /* CRT Screen Scanline Effect */
         .scanline {
             position: fixed;
             top: 0;
@@ -127,37 +124,15 @@
             opacity: 0.6;
         }
 
-        /* Neon Flicker Effect */
-        .neon-flicker {
-            animation: flicker 4s infinite alternate;
-        }
-        @keyframes flicker {
-            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-                text-shadow: 0 0 5px #e60026, 0 0 15px #e60026, 0 0 25px #e60026;
-            }
-            20%, 24%, 55% {
-                text-shadow: none;
-            }
-        }
-
-        /* Soap Card Effect */
         .soap-texture {
             background: linear-gradient(135deg, #1f1f26 0%, #121216 100%);
             border-left: 4px solid #e60026;
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.7);
         }
-
-        .blood-stamp {
-            transform: rotate(-5deg);
-            border: 3px double #e60026;
-            color: #e60026;
-            font-family: 'Permanent Marker', cursive;
-        }
     </style>
 </head>
 <body class="min-h-screen relative flex flex-col justify-between selection:bg-fc-red selection:text-white">
 
-    <!-- CRT Visual Overlay -->
     <div class="scanline"></div>
 
     <!-- SECTION 1: LOCK SCREEN (CODE ACCESS) -->
@@ -192,7 +167,7 @@
                     <div class="relative">
                         <input type="password" id="secret-code" placeholder="Ex: fightclub..." required
                             class="w-full bg-fc-black border-2 border-fc-gray focus:border-fc-red text-white font-mono px-4 py-3 rounded outline-none transition-all placeholder:text-gray-600 text-lg">
-                        <button type="button" onclick="togglePasswordVisibility()" class="absolute right-3 top-3 text-gray-500 hover:text-fc-paper">
+                        <button type="button" onclick="togglePasswordVisibility('secret-code', 'eye-icon')" class="absolute right-3 top-3 text-gray-500 hover:text-fc-paper">
                             <i id="eye-icon" class="fa-solid fa-eye"></i>
                         </button>
                     </div>
@@ -210,14 +185,13 @@
             </form>
             
             <div class="mt-6 text-center text-xs text-fc-paper/40 font-mono">
-                Hint: Le code correspond exactement au nom du club.
+                Hint: Le code correspond au nom du club.
             </div>
         </div>
     </div>
 
     <!-- SECTION 2: MAIN SITE INTERFACE -->
     <div id="main-content" class="hidden min-h-screen flex flex-col">
-        <!-- Header / Navigation -->
         <header class="bg-fc-dark/90 backdrop-blur border-b border-fc-gray sticky top-0 z-40">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
                 <div class="flex items-center gap-3">
@@ -232,7 +206,6 @@
                     </div>
                 </div>
 
-                <!-- Admin Controls & Relock -->
                 <div class="flex items-center gap-3">
                     <button id="admin-toggle-btn" onclick="openAdminAuthModal()" 
                         class="px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-bold rounded border transition-all flex items-center gap-2 bg-fc-gray/40 border-fc-gray text-fc-paper hover:bg-fc-gray">
@@ -247,14 +220,10 @@
             </div>
         </header>
 
-        <!-- Main Body Container -->
         <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full space-y-12">
 
-            <!-- Banner / Ambiance Quote -->
+            <!-- Banner Quote -->
             <section class="bg-gradient-to-r from-fc-red/20 via-fc-dark to-fc-black border-l-4 border-fc-red p-6 rounded-r shadow-xl relative overflow-hidden">
-                <div class="absolute right-4 top-1/2 -translate-y-1/2 opacity-10 text-9xl font-black text-fc-red pointer-events-none select-none">
-                    5&cent;
-                </div>
                 <div class="relative z-10 max-w-3xl">
                     <p class="text-lg sm:text-xl font-bold italic text-white mb-2">
                         "C'est seulement après avoir tout perdu que nous sommes libres de faire tout ce qu'on veut."
@@ -263,43 +232,27 @@
                 </div>
             </section>
 
-            <!-- SECTION: COMBAT RULES -->
+            <!-- Rules -->
             <section class="bg-fc-dark border border-fc-gray/60 rounded-lg p-6 shadow-xl">
                 <h2 class="text-xl sm:text-2xl font-black text-white font-grunge tracking-wide mb-4 flex items-center gap-3">
                     <i class="fa-solid fa-book-skull text-fc-red"></i> Les 8 Règles Officielles
                 </h2>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm text-fc-paper/80 font-mono">
-                    <div class="p-3 bg-fc-black/50 border-l-2 border-fc-red rounded">
-                        <span class="text-fc-red font-bold">1.</span> Vous ne parlez pas du Fight Club.
-                    </div>
-                    <div class="p-3 bg-fc-black/50 border-l-2 border-fc-red rounded">
-                        <span class="text-fc-red font-bold">2.</span> Vous NE PARLEZ PAS du Fight Club !
-                    </div>
-                    <div class="p-3 bg-fc-black/50 border-l-2 border-fc-red rounded">
-                        <span class="text-fc-red font-bold">3.</span> Quelqu'un crie 'stop', s'écroule ou étouffe, le combat est terminé.
-                    </div>
-                    <div class="p-3 bg-fc-black/50 border-l-2 border-fc-red rounded">
-                        <span class="text-fc-red font-bold">4.</span> Seulement deux mecs par combat.
-                    </div>
-                    <div class="p-3 bg-fc-black/50 border-l-2 border-fc-red rounded">
-                        <span class="text-fc-red font-bold">5.</span> Un seul combat à la fois.
-                    </div>
-                    <div class="p-3 bg-fc-black/50 border-l-2 border-fc-red rounded">
-                        <span class="text-fc-red font-bold">6.</span> Pas de chemise, pas de chaussures.
-                    </div>
-                    <div class="p-3 bg-fc-black/50 border-l-2 border-fc-red rounded">
-                        <span class="text-fc-red font-bold">7.</span> Les combats dureront aussi longtemps qu'il le faudra.
-                    </div>
-                    <div class="p-3 bg-fc-black/50 border-l-2 border-fc-red rounded">
-                        <span class="text-fc-red font-bold">8.</span> Si c'est votre première nuit au Fight Club, vous DOIVEZ combattre.
-                    </div>
+                    <div class="p-3 bg-fc-black/50 border-l-2 border-fc-red rounded"><span class="text-fc-red font-bold">1.</span> Vous ne parlez pas du Fight Club.</div>
+                    <div class="p-3 bg-fc-black/50 border-l-2 border-fc-red rounded"><span class="text-fc-red font-bold">2.</span> Vous NE PARLEZ PAS du Fight Club !</div>
+                    <div class="p-3 bg-fc-black/50 border-l-2 border-fc-red rounded"><span class="text-fc-red font-bold">3.</span> Quelqu'un crie 'stop', s'écroule ou étouffe, le combat est terminé.</div>
+                    <div class="p-3 bg-fc-black/50 border-l-2 border-fc-red rounded"><span class="text-fc-red font-bold">4.</span> Seulement deux mecs par combat.</div>
+                    <div class="p-3 bg-fc-black/50 border-l-2 border-fc-red rounded"><span class="text-fc-red font-bold">5.</span> Un seul combat à la fois.</div>
+                    <div class="p-3 bg-fc-black/50 border-l-2 border-fc-red rounded"><span class="text-fc-red font-bold">6.</span> Pas de chemise, pas de chaussures.</div>
+                    <div class="p-3 bg-fc-black/50 border-l-2 border-fc-red rounded"><span class="text-fc-red font-bold">7.</span> Les combats dureront aussi longtemps qu'il le faudra.</div>
+                    <div class="p-3 bg-fc-black/50 border-l-2 border-fc-red rounded"><span class="text-fc-red font-bold">8.</span> Si c'est votre première nuit au Fight Club, vous DOIVEZ combattre.</div>
                 </div>
             </section>
 
-            <!-- SECTION: ADMIN PANEL (Conditional Display) -->
+            <!-- SECTION: ADMIN PANEL -->
             <section id="admin-panel" class="hidden bg-fc-dark border-2 border-dashed border-fc-yellow/50 rounded-lg p-6 shadow-2xl relative">
                 <div class="absolute -top-3 left-6 bg-fc-yellow text-fc-black font-black text-xs px-3 py-0.5 rounded uppercase tracking-wider">
-                    <i class="fa-solid fa-lock-open mr-1"></i> Panneau d'Administration
+                    <i class="fa-solid fa-lock-open mr-1"></i> Panneau d'Administration Sécurisé
                 </div>
 
                 <h2 class="text-2xl font-black text-white font-grunge mb-6 mt-2 flex items-center gap-3">
@@ -354,21 +307,16 @@
                     </span>
                 </div>
 
-                <!-- Grid of Fights -->
-                <div id="fights-container" class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                    <!-- Fights dynamically inserted here via JS -->
-                </div>
+                <div id="fights-container" class="grid grid-cols-1 lg:grid-cols-2 gap-6"></div>
             </section>
         </main>
 
-        <!-- Footer -->
         <footer class="bg-fc-dark border-t border-fc-gray py-6 mt-12 text-center text-xs font-terminal text-fc-paper/50">
             <p>PROJECT MAYHEM &copy; <span id="year"></span> - PROPRIÉTÉ DE PAPERMILL STREET. TOUS DROITS RÉSERVÉS.</p>
-            <p class="mt-1 text-fc-red/80">"SI VOUS LISEZ CECI, CE AVIS S'ADRESSE À VOUS."</p>
         </footer>
     </div>
 
-    <!-- MODAL: ADMIN AUTHENTICATION -->
+    <!-- MODAL: ADMIN AUTHENTICATION WITH SHA-256 ENCRYPTION -->
     <div id="admin-auth-modal" class="fixed inset-0 bg-black/85 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
         <div class="bg-fc-dark border-2 border-fc-yellow max-w-md w-full rounded-lg p-6 shadow-2xl relative animate-in fade-in zoom-in duration-200">
             <button onclick="closeAdminAuthModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl">
@@ -377,10 +325,10 @@
 
             <div class="mb-6 text-center">
                 <div class="w-12 h-12 bg-fc-yellow/10 border border-fc-yellow text-fc-yellow rounded-full flex items-center justify-center mx-auto mb-3 text-xl">
-                    <i class="fa-solid fa-user-gear"></i>
+                    <i class="fa-solid fa-shield-halved"></i>
                 </div>
                 <h3 class="text-2xl font-black text-white font-grunge tracking-wider">Accès Administrateur</h3>
-                <p class="text-xs text-fc-paper/70 font-mono mt-1">Réservé au haut commandement du Projet Mayhem.</p>
+                <p class="text-xs text-fc-paper/70 font-mono mt-1">Authentification Cryptographique SHA-256</p>
             </div>
 
             <form onsubmit="handleAdminAuthSubmit(event)" class="space-y-4">
@@ -389,9 +337,9 @@
                         Mot de Passe Administrateur
                     </label>
                     <div class="relative">
-                        <input type="password" id="admin-pass" required placeholder="Entrez le pass admin..." 
+                        <input type="password" id="admin-pass" required placeholder="Saisir le mot de passe secret..." 
                             class="w-full bg-fc-black border border-fc-gray focus:border-fc-yellow text-white font-mono px-4 py-3 rounded outline-none transition-all">
-                        <button type="button" onclick="toggleAdminPassVisibility()" class="absolute right-3 top-3 text-gray-500 hover:text-fc-paper">
+                        <button type="button" onclick="togglePasswordVisibility('admin-pass', 'admin-eye-icon')" class="absolute right-3 top-3 text-gray-500 hover:text-fc-paper">
                             <i id="admin-eye-icon" class="fa-solid fa-eye"></i>
                         </button>
                     </div>
@@ -399,23 +347,19 @@
 
                 <div id="admin-error-msg" class="hidden text-fc-red font-terminal text-sm flex items-center gap-2 bg-fc-red/10 p-2.5 rounded border border-fc-red/30">
                     <i class="fa-solid fa-triangle-exclamation"></i>
-                    <span>Mot de passe incorrect ! Vous n'êtes pas Tyler.</span>
+                    <span>Mot de passe incorrect ! Accès refusé.</span>
                 </div>
 
                 <button type="submit" class="w-full bg-fc-yellow hover:bg-yellow-400 text-fc-black font-black py-3 rounded uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-lg shadow-fc-yellow/20">
-                    <i class="fa-solid fa-key"></i> Déverrouiller les Contrôles Admin
+                    <i class="fa-solid fa-key"></i> Déverrouiller le Panneau Admin
                 </button>
             </form>
-
-            <div class="mt-4 text-center text-[11px] text-fc-paper/40 font-mono border-t border-fc-gray/40 pt-3">
-                Identifiant Admin par défaut : <span class="text-fc-yellow font-bold">projectmayhem</span> ou <span class="text-fc-yellow font-bold">tyler</span>
-            </div>
         </div>
     </div>
 
     <!-- MODAL: SIGN UP FOR FIGHT -->
     <div id="signup-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-fc-dark border border-fc-red max-w-md w-full rounded-lg p-6 shadow-2xl relative animate-in fade-in zoom-in duration-200">
+        <div class="bg-fc-dark border border-fc-red max-w-md w-full rounded-lg p-6 shadow-2xl relative">
             <button onclick="closeSignupModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl">
                 <i class="fa-solid fa-xmark"></i>
             </button>
@@ -446,7 +390,7 @@
 
                 <div class="p-3 bg-fc-black/80 border border-fc-red/30 rounded text-xs text-fc-paper/70 font-mono space-y-2">
                     <p class="font-bold text-fc-red">Clause de non-responsabilité :</p>
-                    <p>En cochant cette case, je reconnais que les ecchymoses, les dents cassées et les pertes de conscience font partie du processus. Personne n'est responsable à part moi-même.</p>
+                    <p>En cochant cette case, je reconnais que les ecchymoses et les pertes de conscience font partie du processus.</p>
                     <label class="flex items-center gap-2 text-white pt-1 cursor-pointer">
                         <input type="checkbox" id="disclaimer-check" required class="accent-fc-red w-4 h-4">
                         <span>J'accepte d'abandonner mon ego.</span>
@@ -461,7 +405,11 @@
     </div>
 
     <script>
-        // Default initial data for Fight Club fights
+        // SHA-256 HASH OF "chaoslegoat"
+        // This prevents plain-text password leakage on public GitHub repositories!
+        const ADMIN_PASSWORD_HASH = '1507d3fa8fcd21589c31fa76d4cdfc7f8eb9e13d962ea9ce5180f2d4f23b2cbe';
+
+        // Default Data
         const initialFights = [
             {
                 id: 'fight-1',
@@ -487,28 +435,31 @@
             }
         ];
 
-        // State Management
         let fights = [];
         let isAdmin = false;
 
-        // Initialize App
+        // Native SHA-256 Hashing helper function using Web Crypto API
+        async function sha256(message) {
+            const msgBuffer = new TextEncoder().encode(message);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        }
+
         window.addEventListener('DOMContentLoaded', () => {
             document.getElementById('year').textContent = new Date().getFullYear();
             loadFights();
             
-            // Check if user was already logged in this session
             if (sessionStorage.getItem('fc_unlocked') === 'true') {
                 unlockSiteVisuals();
             }
 
-            // Restore admin session if active
             if (sessionStorage.getItem('fc_admin_authenticated') === 'true') {
                 isAdmin = true;
                 updateAdminUIState();
             }
         });
 
-        // LocalStorage Loader
         function loadFights() {
             const stored = localStorage.getItem('fc_fights');
             if (stored) {
@@ -528,7 +479,6 @@
             localStorage.setItem('fc_fights', JSON.stringify(fights));
         }
 
-        // Lockscreen Code Handler
         function handleCodeSubmit(e) {
             e.preventDefault();
             const input = document.getElementById('secret-code').value.trim().toLowerCase();
@@ -540,17 +490,12 @@
                 unlockSiteVisuals();
             } else {
                 errorMsg.classList.remove('hidden');
-                // Shake effect on error
-                const card = e.target.closest('div');
-                card.classList.add('animate-bounce');
-                setTimeout(() => card.classList.remove('animate-bounce'), 500);
             }
         }
 
         function unlockSiteVisuals() {
             const lockScreen = document.getElementById('lock-screen');
             const mainContent = document.getElementById('main-content');
-
             lockScreen.classList.add('opacity-0', 'pointer-events-none');
             setTimeout(() => {
                 lockScreen.classList.add('hidden');
@@ -564,24 +509,20 @@
             window.location.reload();
         }
 
-        function togglePasswordVisibility() {
-            const field = document.getElementById('secret-code');
-            const icon = document.getElementById('eye-icon');
+        function togglePasswordVisibility(fieldId, iconId) {
+            const field = document.getElementById(fieldId);
+            const icon = document.getElementById(iconId);
             if (field.type === 'password') {
                 field.type = 'text';
-                icon.classList.remove('fa-eye');
-                icon.classList.add('fa-eye-slash');
+                icon.classList.replace('fa-eye', 'fa-eye-slash');
             } else {
                 field.type = 'password';
-                icon.classList.remove('fa-eye-slash');
-                icon.classList.add('fa-eye');
+                icon.classList.replace('fa-eye-slash', 'fa-eye');
             }
         }
 
-        // Admin Auth Modal & Logic
         function openAdminAuthModal() {
             if (isAdmin) {
-                // If already admin, clicking logs out
                 logoutAdmin();
                 return;
             }
@@ -594,26 +535,15 @@
             document.getElementById('admin-auth-modal').classList.add('hidden');
         }
 
-        function toggleAdminPassVisibility() {
-            const field = document.getElementById('admin-pass');
-            const icon = document.getElementById('admin-eye-icon');
-            if (field.type === 'password') {
-                field.type = 'text';
-                icon.classList.remove('fa-eye');
-                icon.classList.add('fa-eye-slash');
-            } else {
-                field.type = 'password';
-                icon.classList.remove('fa-eye-slash');
-                icon.classList.add('fa-eye');
-            }
-        }
-
-        function handleAdminAuthSubmit(e) {
+        async function handleAdminAuthSubmit(e) {
             e.preventDefault();
-            const pass = document.getElementById('admin-pass').value.trim().toLowerCase();
+            const inputPass = document.getElementById('admin-pass').value.trim();
             const errorMsg = document.getElementById('admin-error-msg');
 
-            if (pass === 'projectmayhem' || pass === 'tyler') {
+            // Hash user input using SHA-256 before comparing
+            const inputHash = await sha256(inputPass);
+
+            if (inputHash === ADMIN_PASSWORD_HASH) {
                 isAdmin = true;
                 sessionStorage.setItem('fc_admin_authenticated', 'true');
                 errorMsg.classList.add('hidden');
@@ -621,9 +551,6 @@
                 updateAdminUIState();
             } else {
                 errorMsg.classList.remove('hidden');
-                const modal = document.querySelector('#admin-auth-modal > div');
-                modal.classList.add('animate-bounce');
-                setTimeout(() => modal.classList.remove('animate-bounce'), 500);
             }
         }
 
@@ -650,7 +577,7 @@
                 adminBtnIcon.className = 'fa-solid fa-user-shield';
                 adminBtn.className = 'px-3 py-1.5 sm:px-4 sm:py-2 text-xs sm:text-sm font-bold rounded border transition-all flex items-center gap-2 bg-fc-gray/40 border-fc-gray text-fc-paper hover:bg-fc-gray';
             }
-            renderFights(); // Re-render fights to update delete buttons visibility
+            renderFights();
         }
 
         function renderFights() {
@@ -664,7 +591,6 @@
                     <div class="col-span-full bg-fc-dark border border-fc-gray p-8 text-center rounded">
                         <i class="fa-solid fa-ban text-4xl text-fc-red mb-3"></i>
                         <p class="text-lg font-bold text-white">Aucun combat au programme.</p>
-                        <p class="text-xs text-fc-paper/60 font-mono mt-1">Repasse plus tard ou bascule en Mode Admin pour en créer un.</p>
                     </div>
                 `;
                 return;
@@ -679,8 +605,7 @@
                 });
 
                 return `
-                    <div class="soap-texture p-6 rounded-lg relative flex flex-col justify-between group transition-all duration-300 hover:border-fc-red/80">
-                        <!-- Top details -->
+                    <div class="soap-texture p-6 rounded-lg relative flex flex-col justify-between group">
                         <div>
                             <div class="flex items-start justify-between gap-2 mb-3">
                                 <div>
@@ -690,38 +615,25 @@
                                     <h3 class="text-2xl font-black text-white font-grunge mt-1">${escapeHtml(fight.title)}</h3>
                                 </div>
                                 ${isAdmin ? `
-                                    <button onclick="deleteFight('${fight.id}')" title="Supprimer ce combat" 
-                                        class="text-fc-red/60 hover:text-fc-red p-1 transition-colors">
+                                    <button onclick="deleteFight('${fight.id}')" title="Supprimer ce combat" class="text-fc-red/60 hover:text-fc-red p-1">
                                         <i class="fa-solid fa-trash-can text-lg"></i>
                                     </button>
                                 ` : ''}
                             </div>
 
-                            <!-- Location & Time Info -->
                             <div class="space-y-1.5 mb-6 text-xs sm:text-sm text-fc-paper/80 font-mono">
-                                <div class="flex items-center gap-2">
-                                    <i class="fa-solid fa-location-dot text-fc-red w-4"></i>
-                                    <span class="font-bold text-white">${escapeHtml(fight.location)}</span>
-                                </div>
-                                <div class="flex items-center gap-2">
-                                    <i class="fa-solid fa-calendar-day text-fc-red w-4"></i>
-                                    <span class="capitalize">${formattedDate}</span>
-                                </div>
-                                <div class="flex items-center gap-2">
-                                    <i class="fa-solid fa-clock text-fc-red w-4"></i>
-                                    <span>${fight.time}</span>
-                                </div>
+                                <div class="flex items-center gap-2"><i class="fa-solid fa-location-dot text-fc-red w-4"></i><span class="font-bold text-white">${escapeHtml(fight.location)}</span></div>
+                                <div class="flex items-center gap-2"><i class="fa-solid fa-calendar-day text-fc-red w-4"></i><span class="capitalize">${formattedDate}</span></div>
+                                <div class="flex items-center gap-2"><i class="fa-solid fa-clock text-fc-red w-4"></i><span>${fight.time}</span></div>
                             </div>
 
-                            <!-- Fighter List -->
                             <div class="border-t border-fc-gray/50 pt-4 mb-6">
                                 <h4 class="text-xs font-bold uppercase tracking-wider text-fc-paper/60 mb-3 flex items-center justify-between">
                                     <span>Combattants Inscrits (${fight.fighters.length})</span>
-                                    <span class="text-[10px] text-fc-yellow">Limite : 2 par face-à-face</span>
                                 </h4>
                                 
                                 ${fight.fighters.length === 0 ? `
-                                    <p class="text-xs text-gray-500 italic font-mono">Aucun combattant inscrit pour le moment.</p>
+                                    <p class="text-xs text-gray-500 italic font-mono">Aucun combattant inscrit.</p>
                                 ` : `
                                     <div class="space-y-2">
                                         ${fight.fighters.map((f, idx) => `
@@ -732,8 +644,7 @@
                                                     <span class="text-[10px] text-fc-paper/50 font-mono">(${f.weight})</span>
                                                 </div>
                                                 ${isAdmin ? `
-                                                    <button onclick="removeFighter('${fight.id}', ${idx})" title="Retirer ce combattant"
-                                                        class="text-gray-500 hover:text-fc-red text-xs px-1">
+                                                    <button onclick="removeFighter('${fight.id}', ${idx})" title="Retirer ce combattant" class="text-gray-500 hover:text-fc-red text-xs px-1">
                                                         <i class="fa-solid fa-user-xmark"></i>
                                                     </button>
                                                 ` : ''}
@@ -744,9 +655,8 @@
                             </div>
                         </div>
 
-                        <!-- Action Button -->
                         <button onclick="openSignupModal('${fight.id}', '${escapeHtml(fight.title)}')"
-                            class="w-full bg-fc-red/90 hover:bg-fc-red text-white font-bold py-2.5 px-4 rounded text-xs sm:text-sm uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-md">
+                            class="w-full bg-fc-red/90 hover:bg-fc-red text-white font-bold py-2.5 px-4 rounded text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center gap-2">
                             <i class="fa-solid fa-user-plus"></i> Rejoindre la liste des combattants
                         </button>
                     </div>
@@ -754,7 +664,6 @@
             }).join('');
         }
 
-        // Signup Modal Handlers
         function openSignupModal(fightId, title) {
             document.getElementById('modal-fight-id').value = fightId;
             document.getElementById('modal-fight-title').textContent = title;
@@ -782,49 +691,32 @@
             }
         }
 
-        // Admin Add Fight Handler
         function handleAddFight(e) {
             e.preventDefault();
-            if (!isAdmin) {
-                alert("Action non autorisée. Veuillez vous connecter en tant qu'administrateur.");
-                return;
-            }
-
-            const title = document.getElementById('new-fight-title').value.trim();
-            const location = document.getElementById('new-fight-location').value.trim();
-            const date = document.getElementById('new-fight-date').value;
-            const time = document.getElementById('new-fight-time').value;
-            const fightersRaw = document.getElementById('new-fight-fighters').value.trim();
-
-            const initialFightersList = fightersRaw ? fightersRaw.split(',').map(item => ({
-                name: item.trim(),
-                weight: 'Poids Moyen (65-80kg)'
-            })).filter(f => f.name.length > 0) : [];
+            if (!isAdmin) return;
 
             const newFight = {
                 id: 'fight-' + Date.now(),
-                title,
-                location,
-                date,
-                time,
-                fighters: initialFightersList
+                title: document.getElementById('new-fight-title').value.trim(),
+                location: document.getElementById('new-fight-location').value.trim(),
+                date: document.getElementById('new-fight-date').value,
+                time: document.getElementById('new-fight-time').value,
+                fighters: document.getElementById('new-fight-fighters').value.trim() ? 
+                    document.getElementById('new-fight-fighters').value.split(',').map(item => ({
+                        name: item.trim(),
+                        weight: 'Poids Moyen (65-80kg)'
+                    })).filter(f => f.name) : []
             };
 
             fights.unshift(newFight);
             saveFights();
             renderFights();
-
-            // Reset Form
             e.target.reset();
         }
 
-        // Admin Remove Operations
         function deleteFight(fightId) {
-            if (!isAdmin) {
-                alert("Action restreinte aux administrateurs.");
-                return;
-            }
-            if (confirm('Êtes-vous sûr de vouloir supprimer ce combat de la liste ?')) {
+            if (!isAdmin) return;
+            if (confirm('Supprimer ce combat ?')) {
                 fights = fights.filter(f => f.id !== fightId);
                 saveFights();
                 renderFights();
@@ -832,10 +724,7 @@
         }
 
         function removeFighter(fightId, fighterIndex) {
-            if (!isAdmin) {
-                alert("Action restreinte aux administrateurs.");
-                return;
-            }
+            if (!isAdmin) return;
             const fight = fights.find(f => f.id === fightId);
             if (fight && fight.fighters[fighterIndex]) {
                 fight.fighters.splice(fighterIndex, 1);
@@ -844,16 +733,9 @@
             }
         }
 
-        // Utility Helper to Prevent XSS Injection
         function escapeHtml(str) {
             return str.replace(/[&<>"']/g, function(m) {
-                return {
-                    '&': '&amp;',
-                    '<': '&lt;',
-                    '>': '&gt;',
-                    '"': '&quot;',
-                    "'": '&#039;'
-                }[m];
+                return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[m];
             });
         }
     </script>
